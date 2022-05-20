@@ -1,4 +1,35 @@
 <html>
-<head> </head>
-<body> hello world </body>
+<head> 
+<title> Home </title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    
+    <canvas id="myCanvas" style="width:100%; height: 100%;">
+        <script src="assets/boidBackground.js"></script>
+        <script src="assets/rippleBackground.js"></script>
+        <script src="assets/rainyBackground copy.js"></script>
+        <script src="assets/backgroundController.js"></script>
+        <script>
+            canvas.addEventListener('mousedown', function(e) {
+                getCursorPosition(canvas, e)
+                x = getCursorXPosition(canvas, e);
+                y = getCursorYPosition(canvas, e);
+                if (currentBGStyle == "Ripple") {
+                    generateRipple(x, y);
+                }
+            })
+        </script>
+    </canvas>
+
+
+</head>
+<body style="background-color: #151a24;" onload="changebgStyle('Boids')"> 
+    
+    <input class="bgBtns" id="Boids" type="button" value="Boid Background" onclick="changebgStyle(this.id);" /> 
+    <input class="bgBtns" id="Ripple" type="button" value="Ripple Background" onclick="changebgStyle(this.id);"/> 
+    <input class="bgBtns" id="Rainy" type="button" value="Rainy BackGround" onclick="changebgStyle(this.id);"/> 
+    <input class="bgBtns" id="" type="button" value="D" onclick="changeClass(this.id);"/> 
+    <input class="bgBtns" id="answer5" type="button" value="E" onclick="changeClass(this.id);"/>
+
+</body>
 </html>
