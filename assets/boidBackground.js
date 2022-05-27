@@ -1,4 +1,4 @@
-function draw() {
+function drawBoids() {
   // draw the colored region
   context.beginPath();
   context.arc(200, 200, 93, 0, 2 * Math.PI, true);
@@ -11,5 +11,5 @@ function draw() {
   context.stroke();
 }
 function loadBoids(){
-draw();
+
 }

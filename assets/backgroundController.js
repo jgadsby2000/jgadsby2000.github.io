@@ -17,6 +17,7 @@ function getCursorYPosition(canvas, event){
     return y
 }
 
+
 let rainController = false;
 
 let canvas = document.querySelector("#myCanvas");
@@ -36,49 +37,24 @@ context.scale(devicePixelRatio, devicePixelRatio);
 canvas.style.width = rect.width + 'px';
 canvas.style.height = rect.height + 'px';
 
-w = canvas.style.width;
-h = canvas.style.height;
+w = canvas.width;
+h = canvas.height;
+currentBGStyle = "";
 
-
-
+loadRain();
 function changebgStyle(style){
-
-
-    function clearScreen(){
-        context.beginPath();
-        context.clearRect(0, 0, canvas.width, canvas.height); 
-        rainStart = false;
-        deleteRainDrops();
-          
     
-    }
-
     switch (style) {
         case "Boids":
-            clearScreen();
             loadBoids();
             //alert("Boid-Gang");
             break;
         case "Ripple":
-            clearScreen();
             //loadRipple();
             //alert("Ripping");
             break;
         case "Rainy":
-            clearScreen();
-            rainController = true;
-            var something = (function() {
-                var executed = false;
-                return function() {
-                    if (!executed) {
-                        executed = true;
-                        loadRain();
-                    }
-                };
-            })();
-            something();
-
-            
+            //loadRain();
             //alert("Rainy");
             break;
             
@@ -88,3 +64,28 @@ function changebgStyle(style){
     }
     currentBGStyle = style;
 }
+
+function draw() {
+    context.clearRect(0, 0, canvas.width, canvas.height);
+
+    switch (currentBGStyle) {
+        case "Boids":
+            drawBoids();
+            break;
+        case "Ripple":
+            
+            //alert("Ripping");
+            break;
+        case "Rainy":
+            drawRainDrops();
+            drawUmbrella();
+            break;
+            
+    
+        default:
+            break;
+    }
+
+    requestAnimationFrame(draw);
+}
+requestAnimationFrame(draw);

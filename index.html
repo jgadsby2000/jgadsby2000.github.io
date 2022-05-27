@@ -7,15 +7,16 @@
     <canvas id="myCanvas" style="width:100%; height: 100%;">
         <script src="assets/boidBackground.js"></script>
         <script src="assets/rippleBackground.js"></script>
-        <script src="assets/rainyBackground copy.js"></script>
+        <script src="assets/rainyBackground.js"></script>
         <script src="assets/backgroundController.js"></script>
         <script>
             canvas.addEventListener('mousedown', function(e) {
                 getCursorPosition(canvas, e)
                 x = getCursorXPosition(canvas, e);
                 y = getCursorYPosition(canvas, e);
-                if (currentBGStyle == "Ripple") {
+                if (currentBGStyle === "Ripple") {
                     generateRipple(x, y);
+                    alert("PEEP");
                 }
             })
         </script>
