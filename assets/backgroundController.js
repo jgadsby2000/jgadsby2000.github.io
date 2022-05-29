@@ -43,25 +43,6 @@ currentBGStyle = "";
 
 loadRain();
 function changebgStyle(style){
-    
-    switch (style) {
-        case "Boids":
-            loadBoids();
-            //alert("Boid-Gang");
-            break;
-        case "Ripple":
-            //loadRipple();
-            //alert("Ripping");
-            break;
-        case "Rainy":
-            //loadRain();
-            //alert("Rainy");
-            break;
-            
-    
-        default:
-            break;
-    }
     currentBGStyle = style;
 }
 
@@ -73,7 +54,6 @@ function draw() {
             drawBoids();
             break;
         case "Ripple":
-            
             //alert("Ripping");
             break;
         case "Rainy":
