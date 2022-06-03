@@ -38,7 +38,8 @@ function drawRainDrops(){
 }
 
 function drawSplash(xPos, yPos){
-
+    yPos = yPos - 25;
+    
 }
 
 function moveRainDrops(){
@@ -48,6 +49,7 @@ function moveRainDrops(){
         drop.y += drop.ySpeed;
         if(drop.y > y - 30 && drop.y < y + 10 && drop.x < x + 15 && drop.x > x-15){
             console.log("Inline vert heigt")
+            drawSplash(drop.x, drop.y);
             drop.y = -20;
             drop.x = Math.random() * canvas.width;
             drop.length = Math.random() * 1;
