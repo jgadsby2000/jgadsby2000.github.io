@@ -39,7 +39,7 @@ function drawRainDrops(){
 
 function drawSplash(xPos, yPos){
     yPos = yPos - 25;
-    
+
 }
 
 function moveRainDrops(){
@@ -47,9 +47,9 @@ function moveRainDrops(){
         var drop = drops[counter];
         //console.log(drop);
         drop.y += drop.ySpeed;
-        if(drop.y > y - 30 && drop.y < y + 10 && drop.x < x + 15 && drop.x > x-15){
-            console.log("Inline vert heigt")
-            drawSplash(drop.x, drop.y);
+        if(drop.y > y - 50 && drop.y < y + 10 && drop.x < x + 25 && drop.x > x-25){
+            console.log("RainUmbrellaCollision")
+            drawSplash(x, y);
             drop.y = -20;
             drop.x = Math.random() * canvas.width;
             drop.length = Math.random() * 1;
@@ -71,7 +71,7 @@ function drawUmbrella(){
     context.strokeStyle = 'rgb(135,151,177)';
     context.lineWidth = 5;
     context.lineCap = 'round';
-    topOfHandle = y-25;
+    topOfHandle = y-40;
     bottomOfHandle = y-6
 
     //Umbrella stem
@@ -92,7 +92,7 @@ function drawUmbrella(){
     context.beginPath()
     context.moveTo(x,topOfHandle)
     context.lineTo(x+6,topOfHandle)
-    context.arc(x,topOfHandle, 12, 0, Math.PI + (Math.PI * 0) / 2, true)
+    context.arc(x,topOfHandle, 20, 0, Math.PI + (Math.PI * 0) / 2, true)
     context.lineTo(x,topOfHandle)
     context.fillStyle = 'rgb(135,151,177)';
     context.fill();
