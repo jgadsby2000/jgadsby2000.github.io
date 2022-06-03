@@ -1,4 +1,3 @@
-
 function getCursorPosition(canvas, event) {
     const rect = canvas.getBoundingClientRect()
     const x = event.clientX - rect.left
@@ -22,6 +21,7 @@ let rainController = false;
 
 let canvas = document.querySelector("#myCanvas");
 let context = canvas.getContext("2d");
+let dropContext = canvas.getContext("2d");
 
 // get current size of the canvas
 let rect = canvas.getBoundingClientRect();
@@ -48,6 +48,7 @@ function changebgStyle(style){
 
 function draw() {
     context.clearRect(0, 0, canvas.width, canvas.height);
+    dropContext.clearRect(0, 0, canvas.width, canvas.height);
 
     switch (currentBGStyle) {
         case "Boids":
@@ -59,6 +60,7 @@ function draw() {
         case "Rainy":
             drawRainDrops();
             drawUmbrella();
+            
             break;
             
     

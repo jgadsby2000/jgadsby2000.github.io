@@ -10,14 +10,14 @@
         <script src="assets/rainyBackground.js"></script>
         <script src="assets/backgroundController.js"></script>
         <script>
-            canvas.addEventListener('mousedown', function(e) {
-                getCursorPosition(canvas, e)
+            canvas.addEventListener('mousemove', function(e) {
+                //getCursorPosition(canvas, e)
                 x = getCursorXPosition(canvas, e);
                 y = getCursorYPosition(canvas, e);
-                if (currentBGStyle === "Ripple") {
+                /*if (currentBGStyle === "Ripple") {
                     generateRipple(x, y);
                     alert("PEEP");
-                }
+                }*/
             })
         </script>
     </canvas>
