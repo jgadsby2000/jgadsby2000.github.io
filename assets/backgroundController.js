@@ -1,24 +1,27 @@
-function getCursorPosition(canvas, event) {
-    const rect = canvas.getBoundingClientRect()
-    const x = event.clientX - rect.left
-    const y = event.clientY - rect.top
-    console.log("x: " + x + " y: " + y)
-}
-
+/**
+ * Get's the X position of the cursor
+ * @param {canvas} canvas 
+ * @param {event} event 
+ * @returns x location of cursor 
+ */
 function getCursorXPosition(canvas, event){
     const rect = canvas.getBoundingClientRect()
     x = event.clientX - rect.left
     return x;
 }
+/**
+ * Get's the Y position of the cursor
+ * @param {canvas} canvas 
+ * @param {event} event 
+ * @returns y location of cursor 
+ */
 function getCursorYPosition(canvas, event){
     const rect = canvas.getBoundingClientRect()
     y = event.clientY - rect.top
     return y
 }
 
-
 let rainController = false;
-
 let canvas = document.querySelector("#myCanvas");
 let context = canvas.getContext("2d");
 let dropContext = canvas.getContext("2d");
@@ -47,11 +50,13 @@ function changebgStyle(style){
     currentBGStyle = style;
 }
 
+/**
+ * Draws the animation for every frame
+ */
 function draw() {
     context.clearRect(0, 0, canvas.width, canvas.height);
     dropContext.clearRect(0, 0, canvas.width, canvas.height);
     splashContext.clearRect(0, 0, canvas.width, canvas.height);
-
     switch (currentBGStyle) {
         case "Boids":
             drawBoids();
@@ -61,15 +66,11 @@ function draw() {
             break;
         case "Rainy":
             drawRainDrops();
-            drawUmbrella();
-            
-            break;
-            
-    
+            drawUmbrella(); 
+            break;    
         default:
             break;
     }
-
     requestAnimationFrame(draw);
 }
 requestAnimationFrame(draw);

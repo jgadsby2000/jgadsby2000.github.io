@@ -4,9 +4,8 @@ var drops = [];
 var splashX;
 var splashY;
 
-
 /**
- * 
+ * Constructor for the individual rainDrop object
  */
 class rainDrop {
     constructor(y, x, ySpeed, length){
@@ -17,6 +16,9 @@ class rainDrop {
     }
 }
 
+/**
+ * Creates the rain drops on load
+ */
 function loadRain(){
     maxDrops = 300;
     for(count = 0; count < maxDrops; count++){
@@ -25,7 +27,9 @@ function loadRain(){
     }
 }
 
-
+/**
+ * Draws the RainDrops (Called on each frame of animation)
+ */
 function drawRainDrops(){
     moveRainDrops();
     dropContext.strokeStyle = 'rgba(174,194,224,0.5)';
@@ -85,12 +89,15 @@ function drawSplash(splashXY){
 
 }
 
+/**
+ * Moves the raindrops down before they are drawn again
+ */
 function moveRainDrops(){
     for(counter = 0; counter < drops.length; counter++){
         var drop = drops[counter];
         //console.log(drop);
         drop.y += drop.ySpeed;
-        if(drop.y > y - 50 && drop.y < y + 10 && drop.x < x + 25 && drop.x > x-25){
+        if(drop.y > y - 50 && drop.y < y + 10 && drop.x < x + umbrellaRadius && drop.x > x - umbrellaRadius){
             console.log("RainUmbrellaCollision")
             splashXY = getSplashLoc(drop.x, x, y);
             drawSplash(splashXY);
@@ -107,6 +114,9 @@ function moveRainDrops(){
     }
 }
 
+/**
+ * Draws the Umbrella
+ */
 function drawUmbrella(){
     //Umbrella Stroke setting
     context.strokeStyle = 'rgb(135,151,177)';
@@ -127,7 +137,7 @@ function drawUmbrella(){
     context.beginPath()
     context.moveTo(x,topOfHandle)
     context.lineTo(x+6,topOfHandle)
-    context.arc(x,topOfHandle, 20, 0, Math.PI + (Math.PI * 0) / 2, true)
+    context.arc(x,topOfHandle, umbrellaRadius, 0, Math.PI + (Math.PI * 0) / 2, true)
     context.lineTo(x,topOfHandle)
     context.fillStyle = 'rgb(135,151,177)';
     context.fill();

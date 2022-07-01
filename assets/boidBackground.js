@@ -1,3 +1,6 @@
+/**
+ * Draw the boids
+ */
 function drawBoids() {
   // draw the colored region
   context.beginPath();
